@@ -14,6 +14,8 @@
 
     <main id="layoutContainer">
         <div id="mainContent">
+            <div id="mobileVideoTitle" class="mobile-only-block">Loading Title...</div>
+
             <div id="videoPlayerContainer">
                 <video
                     id="my-video-player"
@@ -29,12 +31,17 @@
                     </p>
                 </video>
             </div>
+
+            <div id="mobileControls" class="mobile-only-flex">
+                <button id="mobilePrevButton" title="Previous Video" disabled>Previous</button>
+                <button id="mobileNextButton" title="Next Video" disabled>Next</button>
+            </div>
         </div>
 
         <aside id="sidebar">
             <div id="sidebarTopControls">
-                <div id="currentVideoTitleSidebar">Loading Title...</div>
-                <div id="controls">
+                <div id="currentVideoTitleSidebar" class="desktop-only-block">Loading Title...</div>
+                <div id="controls" class="desktop-only-block">
                     <button id="prevButton" title="Previous Video" disabled>Previous</button>
                     <button id="nextButton" title="Next Video" disabled>Next</button>
                 </div>
@@ -50,7 +57,7 @@
             </div>
 
             <div id="datasetControlsContainer">
-                 <h3>Load Videos:</h3>
+                 <h3>Load Top Videos:</h3>
                  <div id="datasetButtons">
                      <button class="dataset-button" data-file="videos_hot.json" title="Load HOT videos from r/all">HOT</button>
                      <button class="dataset-button" data-file="videos_hour.json" title="Load Top Videos from Past Hour">Past Hour</button>
@@ -66,11 +73,14 @@
 
     <footer>
         <p id="privacyPolicyContainer">
-            <strong class="privacy-policy-heading">PRIVACY POLICY:</strong> 
-            <span class="privacy-policy-text">This site is for demonstration purposes and does not collect personal user data beyond standard, anonymous web analytics (if enabled). Video content is sourced from Reddit. User interactions with Reddit through future login features would be subject to Reddit's own privacy policy.</span>
+            <a href="#" id="privacyLink" class="privacy-policy-heading">PRIVACY POLICY:</a> 
+            <span class="privacy-policy-text desktop-only-inline">This site is for demonstration purposes and does not collect personal user data beyond standard, anonymous web analytics (if enabled). Video content is sourced from Reddit. User interactions with Reddit through future login features would be subject to Reddit's own privacy policy.</span>
         </p>
-        <p class="future-features-note">UPCOMING FEATURES: - Login with Reddit, Comment, Vote, Share, Save, Chat with other users!</p>
-        <p><small>Content sourced from Reddit | This is an independent project.</small></p>
+        <p class="future-features-note">
+            <span class="desktop-only-inline">UPCOMING FEATURES: - Login with Reddit, Comment, Vote, Share, Save, Chat with other users!</span>
+            <span class="mobile-only-inline">MORE FEATURES TO COME!</span>
+        </p>
+        <p class="desktop-only-block"><small>Content sourced from Reddit | This is an independent project.</small></p>
     </footer>
 
     <script src="https://vjs.zencdn.net/8.10.0/video.min.js"></script>
