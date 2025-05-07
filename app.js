@@ -1,39 +1,33 @@
-// app.js - Handles duplicated controls for mobile, autoplay toggle
+// app.js - Final version with all UI/UX enhancements
 
 // --- DOM Element References ---
 const videoPlayerElement = document.getElementById('my-video-player');
+const activeVideoPageTitleElement = document.getElementById('activeVideoPageTitle'); // Main title display
 
-// Desktop/Sidebar Controls
 const prevButton = document.getElementById('prevButton');
 const nextButton = document.getElementById('nextButton');
-const currentVideoTitleElement = document.getElementById('currentVideoTitleSidebar'); // For desktop
 const shuffleButton = document.getElementById('shuffleButton');
 const autoplayToggleButton = document.getElementById('autoplayToggleButton');
-
-// Mobile Controls
-const mobileVideoTitleElement = document.getElementById('mobileVideoTitle'); // For mobile
-const mobilePrevButton = document.getElementById('mobilePrevButton');
-const mobileNextButton = document.getElementById('mobileNextButton');
+const reverseListButton = document.getElementById('reverseListButton'); // New button
 
 const upcomingListElement = document.getElementById('upcomingList');
 const datasetButtons = document.querySelectorAll('.dataset-button');
+
+const privacyLink = document.getElementById('privacyLink');
+const privacyPolicyTextElement = document.getElementById('privacyPolicyText');
 
 // --- Global Variables ---
 let videoList = [];
 let currentVideoIndex = -1;
 let player = null; // Video.js player instance
 let currentDatasetFile = 'videos_day.json'; // Default dataset
-let isAutoplayEnabled = true; // Autoplay for 'ended' event is ON by default
+let isAutoplayEnabled = true;
 
 // --- UI State Functions ---
 function showLoadingState(message = "Loading...") {
-    const loadingText = `<span>${message}</span>`;
-    currentVideoTitleElement.innerHTML = loadingText;
-    mobileVideoTitleElement.innerHTML = loadingText; // Update mobile title as well
+    activeVideoPageTitleElement.innerHTML = `<span>${message}</span>`;
     upcomingListElement.innerHTML = '<li>Loading...</li>';
-
-    // Disable all interactive controls
-    [nextButton, prevButton, mobileNextButton, mobilePrevButton, shuffleButton, autoplayToggleButton].forEach(btn => btn.disabled = true);
+    [nextButton, prevButton, shuffleButton, autoplayToggleButton, reverseListButton].forEach(btn => btn.disabled = true);
     datasetButtons.forEach(button => button.disabled = true);
 }
 
@@ -41,8 +35,9 @@ function enableCoreControls() {
     const hasVideos = videoList && videoList.length > 0;
     shuffleButton.disabled = !(hasVideos && videoList.length > 1);
     autoplayToggleButton.disabled = !hasVideos;
+    reverseListButton.disabled = !(hasVideos && videoList.length > 1); // Enable if list can be reversed
     datasetButtons.forEach(button => button.disabled = false);
-    // Next/Prev button state (both sets) is handled in loadVideoIntoPlayer
+    // Next/Prev button state is handled in loadVideoIntoPlayer
 }
 
 function updateAutoplayButtonUI() {
@@ -62,8 +57,7 @@ function updateAutoplayButtonUI() {
  * Shuffles the currently active videoList array in place.
  */
 function shuffleVideoList() {
-    // ... (Shuffle logic remains IDENTICAL to the previous version) ...
-    if (!videoList || videoList.length < 2) { console.log("Not enough videos to shuffle."); return; }
+    if (!videoList || videoList.length < 2) { return; }
     console.log("Shuffling current video list...");
     for (let i = videoList.length - 1; i > 0; i--) {
         const j = Math.floor(Math.random() * (i + 1));
@@ -76,17 +70,44 @@ function shuffleVideoList() {
 }
 
 /**
- * Updates the display of the upcoming video list to show ALL remaining videos.
+ * Reverses the order of the currently active videoList.
+ */
+function reverseVideoList() {
+    if (!videoList || videoList.length < 2) {
+        console.log("Not enough videos to reverse.");
+        return;
+    }
+    console.log("Reversing video list...");
+    videoList.reverse();
+    console.log("List reversed.");
+    loadVideoIntoPlayer(0); // Load the new first video
+    // Optional: visual feedback for reverse button
+    reverseListButton.textContent = 'Reversed!';
+    setTimeout(() => { reverseListButton.textContent = 'Reverse List'; }, 1200);
+}
+
+
+/**
+ * Updates the display of the upcoming video list (shows all remaining).
  */
 function updateUpcomingList() {
-    // ... (Upcoming list population logic remains IDENTICAL to the previous version,
-    // ensuring it iterates all remaining videos for the scrollable list) ...
     upcomingListElement.innerHTML = '';
-    if (!videoList || videoList.length === 0) return;
+    if (!videoList || videoList.length === 0) {
+        shuffleButton.disabled = true; // Also disable shuffle if no list
+        reverseListButton.disabled = true; // Disable reverse if no list
+        return;
+    }
+    // Enable shuffle/reverse if list has content (prev/next handled in loadVideo)
+    shuffleButton.disabled = videoList.length < 2;
+    reverseListButton.disabled = videoList.length < 2;
+
+
     const startIndex = currentVideoIndex + 1;
     if (startIndex >= videoList.length) {
-        upcomingListElement.innerHTML = '<li>End of list.</li>'; return;
+        upcomingListElement.innerHTML = '<li>End of list.</li>';
+        return;
     }
+
     for (let i = startIndex; i < videoList.length; i++) {
         const upcomingIndex = i;
         const videoData = videoList[upcomingIndex];
@@ -96,7 +117,7 @@ function updateUpcomingList() {
         linkButton.dataset.index = upcomingIndex;
         const titleSpan = document.createElement('span');
         titleSpan.className = 'upcoming-title';
-        titleSpan.textContent = `${videoData.title.substring(0, 50)}${videoData.title.length > 50 ? '...' : ''}`; // Keep truncation for list items
+        titleSpan.textContent = `${videoData.title.substring(0, 50)}${videoData.title.length > 50 ? '...' : ''}`;
         const scoreSpan = document.createElement('span');
         scoreSpan.className = 'upcoming-score';
         scoreSpan.textContent = `(Score: ${videoData.score})`;
@@ -111,27 +132,22 @@ function updateUpcomingList() {
 }
 
 /**
- * Initializes the Video.js player instance if it doesn't exist
- * and sets up essential event listeners.
+ * Initializes the Video.js player instance.
  */
 function initializeVideoJsPlayer() {
     if (!player) {
         const playerOptions = {
-            fluid: true,
-            autoplay: true,
-            muted: true,
-            controls: true,
+            fluid: true, autoplay: true, muted: true, controls: true,
         };
         player = videojs(videoPlayerElement.id, playerOptions, function onPlayerReady() {
             videojs.log('Video.js Player is ready.');
             this.on('ended', () => {
-                console.log('Video ended via Video.js.');
-                if (isAutoplayEnabled) { // Check autoplay toggle
-                    console.log('Autoplay is ON, loading next video.');
+                console.log('Video ended.');
+                if (isAutoplayEnabled) {
+                    console.log('Autoplay ON, loading next.');
                     playNextVideo();
                 } else {
-                    console.log('Autoplay is OFF, not loading next video automatically.');
-                    // UI could indicate next video is ready but paused, for now just stops.
+                    console.log('Autoplay OFF.');
                 }
             });
             this.on('error', () => {
@@ -146,43 +162,42 @@ function initializeVideoJsPlayer() {
 }
 
 /**
- * Loads a video from the videoList into the Video.js player.
+ * Loads a video into the Video.js player.
  * @param {number} index - The index of the video in the videoList.
  */
 function loadVideoIntoPlayer(index) {
-    const noVideoMessage = `<span>End of list or invalid index.</span>`;
-     if (!videoList || videoList.length === 0 || index < 0 || index >= videoList.length) {
-        currentVideoTitleElement.innerHTML = noVideoMessage;
-        mobileVideoTitleElement.innerHTML = noVideoMessage; // Update mobile title too
+    const noVideoMsg = `<span>End of list or invalid index.</span>`;
+    if (!videoList || videoList.length === 0 || index < 0 || index >= videoList.length) {
+        activeVideoPageTitleElement.innerHTML = noVideoMsg;
         console.warn(`Attempted to load invalid index: ${index}`);
         const atStart = index <= 0 || videoList.length === 0;
         const atEnd = index >= videoList.length - 1 || videoList.length === 0;
-        prevButton.disabled = atStart; mobilePrevButton.disabled = atStart;
-        nextButton.disabled = atEnd; mobileNextButton.disabled = atEnd;
+        prevButton.disabled = atStart;
+        nextButton.disabled = atEnd;
         if (player) player.reset();
-        updateUpcomingList();
+        updateUpcomingList(); // Update list to show "End of list"
         return;
     }
 
     currentVideoIndex = index;
     const videoData = videoList[currentVideoIndex];
 
-    const titleHTML = `
+    // Update the main page title display
+    activeVideoPageTitleElement.innerHTML = `
         <a href="${videoData.permalink}" target="_blank" title="Go to Reddit Post: ${videoData.title}">
             ${videoData.title}
         </a>`;
-    currentVideoTitleElement.innerHTML = titleHTML;
-    mobileVideoTitleElement.innerHTML = titleHTML; // Update mobile title
+    // Scroll the title area to the top if it's scrollable
+    activeVideoPageTitleElement.scrollTop = 0;
+
 
     console.log(`Loading into player [${index + 1}/${videoList.length}]: ${videoData.title} (${videoData.type})`);
 
     if (!player) {
-        console.error("Video.js player not initialized. Initializing now.");
+        console.error("Player not initialized. Initializing.");
         initializeVideoJsPlayer();
         if (!player) {
-            const errorMsg = "<span>Error: Player could not be initialized.</span>";
-            currentVideoTitleElement.innerHTML = errorMsg;
-            mobileVideoTitleElement.innerHTML = errorMsg;
+            activeVideoPageTitleElement.innerHTML = "<span>Error: Player init failed.</span>";
             return;
         }
     }
@@ -196,25 +211,20 @@ function loadVideoIntoPlayer(index) {
 
     player.src({ src: videoData.url, type: sourceType });
     player.load();
-    player.play()?.catch(error => console.warn("Player play() attempt failed:", error));
+    // Autoplay is handled by Video.js player options now
+    // player.play()?.catch(error => console.warn("Player play() failed:", error));
 
-    // Update BOTH sets of Prev/Next buttons
-    const atStart = currentVideoIndex <= 0;
-    const atEnd = currentVideoIndex >= videoList.length - 1;
-    prevButton.disabled = atStart; mobilePrevButton.disabled = atStart;
-    nextButton.disabled = atEnd; mobileNextButton.disabled = atEnd;
-
+    prevButton.disabled = (currentVideoIndex <= 0);
+    nextButton.disabled = (currentVideoIndex >= videoList.length - 1);
     updateUpcomingList();
 }
 
 /** Handles errors during playback */
 function handlePlaybackError(errorMessage) {
     console.error("Playback Error:", errorMessage);
-    const currentTitleLink = currentVideoTitleElement.querySelector('a'); // Get from sidebar title
+    const currentTitleLink = activeVideoPageTitleElement.querySelector('a');
     const titleHTML = currentTitleLink ? currentTitleLink.outerHTML : `<span>${videoList[currentVideoIndex]?.title || "Video"}</span>`;
-    const errorDisplayHTML = `<span style="color: red;">Playback Error. Skipping...</span><br/>${titleHTML}`;
-    currentVideoTitleElement.innerHTML = errorDisplayHTML;
-    mobileVideoTitleElement.innerHTML = errorDisplayHTML; // Show error on mobile title as well
+    activeVideoPageTitleElement.innerHTML = `<span style="color: red;">Playback Error. Skipping...</span><br/>${titleHTML}`;
     setTimeout(playNextVideo, 2500);
 }
 
@@ -224,11 +234,9 @@ function playNextVideo() {
         loadVideoIntoPlayer(currentVideoIndex + 1);
     } else {
         const lastVideoData = videoList[currentVideoIndex];
-        const endMsgHTML = `End of list. Last: <a href="${lastVideoData?.permalink || '#'}" target="_blank" title="${lastVideoData?.title || ''}">${lastVideoData?.title || 'N/A'}</a>`;
-        currentVideoTitleElement.innerHTML = endMsgHTML;
-        mobileVideoTitleElement.innerHTML = endMsgHTML;
+        activeVideoPageTitleElement.innerHTML = `End of list. Last: <a href="${lastVideoData?.permalink || '#'}" target="_blank" title="${lastVideoData?.title || ''}">${lastVideoData?.title || 'N/A'}</a>`;
         console.log("End of list reached.");
-        nextButton.disabled = true; mobileNextButton.disabled = true;
+        nextButton.disabled = true;
     }
 }
 
@@ -238,7 +246,7 @@ function playPreviousVideo() {
         loadVideoIntoPlayer(currentVideoIndex - 1);
     } else {
          console.log("Beginning of list reached.");
-         prevButton.disabled = true; mobilePrevButton.disabled = true;
+         prevButton.disabled = true;
     }
 }
 
@@ -246,7 +254,7 @@ function playPreviousVideo() {
 async function loadAndInitialize(jsonFilename) {
     console.log(`Attempting to load dataset: ${jsonFilename}`);
     const userFriendlyName = jsonFilename.replace('videos_', '').replace('.json', '').replace(/_/g, ' ');
-    showLoadingState(`Loading ${userFriendlyName} list...`); // This now updates both title elements
+    showLoadingState(`Loading ${userFriendlyName} list...`);
 
     datasetButtons.forEach(button => {
         button.classList.toggle('active-dataset', button.dataset.file === jsonFilename);
@@ -268,33 +276,34 @@ async function loadAndInitialize(jsonFilename) {
         if (videoList && videoList.length > 0) {
             loadVideoIntoPlayer(0);
         } else {
-            const noVideosMsg = `<span>No videos found in ${userFriendlyName}. Run Python script.</span>`;
-            currentVideoTitleElement.innerHTML = noVideosMsg;
-            mobileVideoTitleElement.innerHTML = noVideosMsg;
+            activeVideoPageTitleElement.innerHTML = `<span>No videos found in ${userFriendlyName}. Run Python script.</span>`;
             upcomingListElement.innerHTML = '';
             if (player) player.reset();
         }
     } catch (error) {
         console.error(`Failed to load dataset ${jsonFilename}:`, error);
-        const errorMsg = `<span>Error loading ${userFriendlyName}: ${error.message}.</span>`;
-        currentVideoTitleElement.innerHTML = errorMsg;
-        mobileVideoTitleElement.innerHTML = errorMsg;
+        activeVideoPageTitleElement.innerHTML = `<span>Error loading ${userFriendlyName}: ${error.message}.</span>`;
         upcomingListElement.innerHTML = '<li>Error loading list.</li>';
         if (player) player.reset();
     } finally {
-        enableCoreControls(); // Re-enable relevant controls
+        enableCoreControls();
+    }
+}
+
+/** Toggles the visibility of the privacy policy text. */
+function togglePrivacyPolicy() {
+    if (privacyPolicyTextElement.style.display === "none" || privacyPolicyTextElement.style.display === "") {
+        privacyPolicyTextElement.style.display = "block";
+    } else {
+        privacyPolicyTextElement.style.display = "none";
     }
 }
 
 // --- Event Listeners Setup ---
-// Desktop Controls
 prevButton.addEventListener('click', playPreviousVideo);
 nextButton.addEventListener('click', playNextVideo);
-// Mobile Controls
-mobilePrevButton.addEventListener('click', playPreviousVideo);
-mobileNextButton.addEventListener('click', playNextVideo);
-
 shuffleButton.addEventListener('click', shuffleVideoList);
+reverseListButton.addEventListener('click', reverseVideoList); // Listener for new button
 
 autoplayToggleButton.addEventListener('click', () => {
     isAutoplayEnabled = !isAutoplayEnabled;
@@ -313,9 +322,14 @@ datasetButtons.forEach(button => {
     });
 });
 
+privacyLink.addEventListener('click', (event) => {
+    event.preventDefault(); // Prevent default anchor link behavior
+    togglePrivacyPolicy();
+});
+
 // --- Initial Application Start ---
 document.addEventListener('DOMContentLoaded', () => {
-    setInitialUIState(); // Call this first to set initial disabled states
-    updateAutoplayButtonUI(); // Set initial text/class for autoplay button
+    setInitialUIState();
+    updateAutoplayButtonUI();
     loadAndInitialize(currentDatasetFile); // Load default dataset
 });

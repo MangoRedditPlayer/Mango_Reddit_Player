@@ -10,12 +10,10 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <h1>Mango Reddit Video Player</h1>
+    <div id="activeVideoPageTitle" class="main-page-title">Loading Video Title...</div>
 
     <main id="layoutContainer">
         <div id="mainContent">
-            <div id="mobileVideoTitle" class="mobile-only-block">Loading Title...</div>
-
             <div id="videoPlayerContainer">
                 <video
                     id="my-video-player"
@@ -31,25 +29,18 @@
                     </p>
                 </video>
             </div>
-
-            <div id="mobileControls" class="mobile-only-flex">
-                <button id="mobilePrevButton" title="Previous Video" disabled>Previous</button>
-                <button id="mobileNextButton" title="Next Video" disabled>Next</button>
-            </div>
         </div>
 
         <aside id="sidebar">
             <div id="sidebarTopControls">
-                <div id="currentVideoTitleSidebar" class="desktop-only-block">Loading Title...</div>
-                <div id="controls" class="desktop-only-block">
-                    <button id="prevButton" title="Previous Video" disabled>Previous</button>
+                <div id="controls"> <button id="prevButton" title="Previous Video" disabled>Previous</button>
                     <button id="nextButton" title="Next Video" disabled>Next</button>
                 </div>
                 <button id="shuffleButton" title="Shuffle the current video list" disabled>Shuffle List</button>
                 <button id="autoplayToggleButton" title="Toggle autoplay for next videos">Auto-play ON</button>
-            </div>
+                <button id="reverseListButton" title="Reverse the current video order" disabled>Reverse List</button> </div>
 
-            <div id="upcomingListContainer">
+            <div id="upcomingListContainer" class="desktop-only-block">
                 <h2>Upcoming Videos:</h2>
                 <ul id="upcomingList">
                     <li>Loading upcoming...</li>
@@ -72,10 +63,12 @@
     </main>
 
     <footer>
-        <p id="privacyPolicyContainer">
-            <a href="#" id="privacyLink" class="privacy-policy-heading">PRIVACY POLICY:</a> 
-            <span class="privacy-policy-text desktop-only-inline">This site is for demonstration purposes and does not collect personal user data beyond standard, anonymous web analytics (if enabled). Video content is sourced from Reddit. User interactions with Reddit through future login features would be subject to Reddit's own privacy policy.</span>
-        </p>
+        <div id="privacySection">
+            <a href="#" id="privacyLink" class="privacy-policy-heading">Privacy Policy</a> 
+            <div id="privacyPolicyText" class="privacy-text-content" style="display:none;">
+                This site is for demonstration purposes and does not collect personal user data beyond standard, anonymous web analytics (if enabled). Video content is sourced from Reddit. User interactions with Reddit through future login features would be subject to Reddit's own privacy policy.
+            </div>
+        </div>
         <p class="future-features-note">
             <span class="desktop-only-inline">UPCOMING FEATURES: - Login with Reddit, Comment, Vote, Share, Save, Chat with other users!</span>
             <span class="mobile-only-inline">MORE FEATURES TO COME!</span>
