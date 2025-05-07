@@ -1,4 +1,4 @@
-# get_videos.py - Adds "HOT" filter, robust 'year' fetch
+# get_videos.py - With diagnostic change for 'year' filter
 
 import praw
 import json
@@ -11,7 +11,8 @@ CLIENT_ID = os.environ.get("REDDIT_CLIENT_ID")
 CLIENT_SECRET = os.environ.get("REDDIT_CLIENT_SECRET")
 USERNAME = os.environ.get("REDDIT_USERNAME")
 PASSWORD = os.environ.get("REDDIT_PASSWORD")
-USER_AGENT = f"MangoPlayerApp/Final/1.1 by u/{USERNAME or 'RedditUser'}" # Updated version
+# User-Agent - important to customize with your app name and Reddit username
+USER_AGENT = f"MangoPlayerApp/Diagnostic/1.2 by u/{USERNAME or 'YourRedditUsername'}"
 
 # --- Check if Credentials are Loaded ---
 if not all([CLIENT_ID, CLIENT_SECRET, USERNAME, PASSWORD]):
@@ -24,7 +25,7 @@ def fetch_and_save(subreddit_name, sort_method, time_filter, post_limit, output_
     """Fetches posts based on parameters and saves them to a JSON file."""
     print("-" * 40)
     fetch_description = f"r/{subreddit_name}, Sort: {sort_method}"
-    if sort_method == 'top':
+    if sort_method == 'top': # time_filter is only relevant for 'top' sort
         fetch_description += f", Filter: {time_filter}"
     fetch_description += f", Limit: {post_limit}"
     print(f"Starting fetch for: {fetch_description}")
@@ -43,18 +44,20 @@ def fetch_and_save(subreddit_name, sort_method, time_filter, post_limit, output_
         if sort_method == 'hot':
             submission_generator = subreddit.hot(limit=post_limit)
         elif sort_method == 'top':
+            if not time_filter: # Should not happen if logic is correct, but good check
+                print(f"ERROR: time_filter is missing for 'top' sort. Skipping {output_filename}.")
+                return False
             submission_generator = subreddit.top(time_filter=time_filter, limit=post_limit)
         else:
-            print(f"ERROR: Unknown sort_method '{sort_method}'")
+            print(f"ERROR: Unknown sort_method '{sort_method}' for {output_filename}")
             return False
 
-        # Iterate safely, respecting the intended limit
         retrieved_submissions = []
         if submission_generator:
             for submission in submission_generator:
                 retrieved_submissions.append(submission)
-                if len(retrieved_submissions) >= post_limit:
-                    break
+                if len(retrieved_submissions) >= post_limit: # Manual check against limit
+                    break 
         
         print(f"Retrieved {len(retrieved_submissions)} submission objects from API for {fetch_description.split(', Limit:')[0]}.")
 
@@ -115,7 +118,7 @@ def fetch_and_save(subreddit_name, sort_method, time_filter, post_limit, output_
 # --- Main Execution ---
 if __name__ == "__main__":
     print("="*50)
-    print("Starting Reddit Data Fetch Script")
+    print("Starting Reddit Data Fetch Script (Diagnostic for 'year' filter)")
     print("="*50)
     
     if not all([CLIENT_ID, CLIENT_SECRET, USERNAME, PASSWORD]):
@@ -140,38 +143,47 @@ if __name__ == "__main__":
         print("Please double-check credentials stored in environment variables/GitHub Secrets.")
         sys.exit(1)
 
-    # --- Define Timeframes and Limits ---
-    # 'sort_method' can be 'top' or 'hot'. 'time_filter' is only used for 'top'.
+    # --- Define Fetch Configurations ---
     fetch_configs = [
-        {'sort': 'hot',   'tf': None,    'limit': 100, 'file': 'videos_hot.json'}, # HOT doesn't use time_filter
+        {'sort': 'hot',   'tf': None,    'limit': 100, 'file': 'videos_hot.json'},
         {'sort': 'top',   'tf': 'hour',  'limit': 100, 'file': 'videos_hour.json'},
         {'sort': 'top',   'tf': 'day',   'limit': 100, 'file': 'videos_day.json'},
         {'sort': 'top',   'tf': 'week',  'limit': 100, 'file': 'videos_week.json'},
         {'sort': 'top',   'tf': 'month', 'limit': 200, 'file': 'videos_month.json'},
-        {'sort': 'top',   'tf': 'year',  'limit': 200, 'file': 'videos_year.json'},
+        {'sort': 'top',   'tf': 'year',  'limit': 200, 'file': 'videos_year.json'}, # This will be tested
         {'sort': 'top',   'tf': 'all',   'limit': 200, 'file': 'videos_all_time.json'}
     ]
 
     all_success = True
+    # --- Fetch All Lists ---
     for config in fetch_configs:
+        current_subreddit_name = "all" # Default to r/all
+        
+        # *** TEMPORARY DIAGNOSTIC CHANGE FOR 'YEAR' FILTER ***
+        if config['sort'] == 'top' and config['tf'] == 'year':
+            current_subreddit_name = "videos" # Test with r/videos instead of r/all
+            print(f"***** DIAGNOSTIC: For 'year' filter, fetching from r/{current_subreddit_name} instead of r/all *****")
+
         success = fetch_and_save(
-            subreddit_name="all",
+            subreddit_name=current_subreddit_name, # Use the potentially modified subreddit name
             sort_method=config['sort'],
-            time_filter=config['tf'], # Will be None for 'hot'
+            time_filter=config['tf'],
             post_limit=config['limit'],
-            output_filename=config['file'],
+            output_filename=config['file'], # Will still save to videos_year.json for the test
             reddit_instance=reddit
         )
         if not success:
             all_success = False
-            print(f"##### WARNING: Fetch or save FAILED for config: {config}. #####")
-        print(f"Waiting 2 seconds before next fetch...")
-        time.sleep(2) 
+            print(f"##### WARNING: Fetch or save FAILED for config: {config} on subreddit {current_subreddit_name}. #####")
+        
+        if len(fetch_configs) > 1: # Don't sleep if only one config for some reason
+            print(f"Waiting 2 seconds before next fetch...")
+            time.sleep(2) 
 
     print("="*50)
     if all_success:
         print("Script finished: All datasets fetched and saved successfully.")
     else:
-        print("Script finished: WARNING - One or more datasets failed to fetch or save completely.")
+        print("Script finished: WARNING - One or more datasets may have failed to fetch or save completely.")
     print("="*50)
     sys.exit(0 if all_success else 1)
