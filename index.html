@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mango Reddit Video Player</title>
+
+    <link href="https://vjs.zencdn.net/8.10.0/video-js.css" rel="stylesheet" />
+
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h1>Mango Reddit Video Player</h1>
+
+    <main id="layoutContainer">
+        <div id="mainContent">
+            <div id="videoPlayerContainer">
+                <video
+                    id="my-video-player"
+                    class="video-js vjs-default-skin vjs-big-play-centered"
+                    controls
+                    preload="auto"
+                    width="640" 
+                    height="360"
+                    data-setup='{ "fluid": true, "aspectRatio": "16:9", "autoplay": true, "muted": true }'>
+                    <p class="vjs-no-js">
+                        To view this video please enable JavaScript, and consider upgrading to a
+                        web browser that <a href="https://videojs.com/html5-video-support/" target="_blank">supports HTML5 video</a>.
+                    </p>
+                </video>
+            </div>
+        </div>
+
+        <aside id="sidebar">
+            <div id="sidebarTopControls">
+                <div id="currentVideoTitleSidebar">Loading Title...</div>
+                <div id="controls">
+                    <button id="prevButton" title="Previous Video" disabled>Previous</button>
+                    <button id="nextButton" title="Next Video" disabled>Next</button>
+                </div>
+                <button id="shuffleButton" title="Shuffle the current video list" disabled>Shuffle List</button>
+                <button id="autoplayToggleButton" title="Toggle autoplay for next videos">Auto-play ON</button>
+            </div>
+
+            <div id="upcomingListContainer">
+                <h2>Upcoming Videos:</h2>
+                <ul id="upcomingList">
+                    <li>Loading upcoming...</li>
+                </ul>
+            </div>
+
+            <div id="datasetControlsContainer">
+                 <h3>Load Videos:</h3>
+                 <div id="datasetButtons">
+                     <button class="dataset-button" data-file="videos_hot.json" title="Load HOT videos from r/all">HOT</button>
+                     <button class="dataset-button" data-file="videos_hour.json" title="Load Top Videos from Past Hour">Past Hour</button>
+                     <button class="dataset-button" data-file="videos_day.json" title="Load Top Videos from Past 24 Hours">Past 24 Hrs</button>
+                     <button class="dataset-button" data-file="videos_week.json" title="Load Top Videos from Past Week">Past Week</button>
+                     <button class="dataset-button" data-file="videos_month.json" title="Load Top Videos from Past Month">Past Month</button>
+                     <button class="dataset-button" data-file="videos_year.json" title="Load Top Videos from Past Year">Past Year</button>
+                     <button class="dataset-button" data-file="videos_all_time.json" title="Load Top Videos from All Time">All Time</button>
+                 </div>
+            </div>
+        </aside>
+    </main>
+
+    <footer>
+        <p id="privacyPolicyContainer">
+            <strong class="privacy-policy-heading">PRIVACY POLICY:</strong> 
+            <span class="privacy-policy-text">This site is for demonstration purposes and does not collect personal user data beyond standard, anonymous web analytics (if enabled). Video content is sourced from Reddit. User interactions with Reddit through future login features would be subject to Reddit's own privacy policy.</span>
+        </p>
+        <p class="future-features-note">UPCOMING FEATURES: - Login with Reddit, Comment, Vote, Share, Save, Chat with other users!</p>
+        <p><small>Content sourced from Reddit | This is an independent project.</small></p>
+    </footer>
+
+    <script src="https://vjs.zencdn.net/8.10.0/video.min.js"></script>
+    <script src="app.js" defer></script>
+</body>
+</html>

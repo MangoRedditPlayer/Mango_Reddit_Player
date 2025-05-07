@@ -1,0 +1,252 @@
+/* --- CSS Variables --- */
+:root {
+    --mango-bg: #FFBF34;
+    --text-dark: #2c2c2c;
+    --container-bg: #ffffff;
+    --sidebar-bg: #f8f9fa;
+    --border-color: #d1d1d1;
+    --shadow-color: rgba(0, 0, 0, 0.08);
+    --link-color: #0056b3;
+    --link-hover-color: #003d80;
+    --title-link-color: var(--text-dark);
+    --title-link-hover-color: #000000;
+    --button-bg: #007bff;
+    --button-hover-bg: #0056b3;
+    --button-disabled-bg: #cccccc;
+    --list-bg-odd: rgba(0, 0, 0, 0.02);
+    --list-bg-even: rgba(0, 0, 0, 0.05);
+    --score-color: #444444;
+    --shuffle-button-bg: #28a745;
+    --shuffle-button-hover-bg: #218838;
+    --autoplay-button-off-bg: #dc3545; /* Red for OFF */
+    --autoplay-button-off-hover-bg: #c82333;
+    --autoplay-button-on-bg: var(--shuffle-button-bg); /* Green for ON */
+    --autoplay-button-on-hover-bg: var(--shuffle-button-hover-bg);
+    --dataset-button-bg: #6c757d;
+    --dataset-button-hover-bg: #5a6268;
+    --dataset-button-active-bg: #343a40;
+    --sidebar-width: 330px;
+    --sidebar-min-width: 260px;
+    --content-padding: 15px;
+    --title-line-height: 1.35;
+    /* --title-max-lines: 3; -- No longer using line-clamp for title */
+    --base-font-size: 16px;
+    --footer-text-color: #555;
+    --privacy-heading-size: 0.9rem;
+    --privacy-text-size: 0.65rem;
+    --future-features-size: 0.7rem;
+}
+
+/* --- Global Reset & Body Setup --- */
+*, *::before, *::after { box-sizing: border-box; }
+
+html { height: 100%; overflow: hidden; font-size: var(--base-font-size); }
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI", "Segoe UI Symbol";
+    margin: 0; padding: 0; background-color: var(--mango-bg); color: var(--text-dark);
+    height: 100%; display: flex; flex-direction: column; overflow: hidden;
+}
+
+h1 {
+    text-align: center; margin: 12px 0 8px 0; color: var(--text-dark);
+    flex-shrink: 0; font-size: 1.5rem; padding: 0 var(--content-padding);
+}
+
+/* --- Main Layout Container --- */
+#layoutContainer {
+    display: flex; flex-direction: row;
+    padding: 0 var(--content-padding) var(--content-padding) var(--content-padding);
+    width: 100%; max-width: 1700px;
+    margin: 0 auto; flex-grow: 1; overflow: hidden; align-items: stretch;
+}
+
+/* --- Main Content Area (Video) --- */
+#mainContent {
+    flex-grow: 1; padding-right: var(--content-padding);
+    display: flex; justify-content: center; align-items: center;
+    overflow: hidden; min-width: 0;
+}
+
+/* --- Video Player Container & Player --- */
+#videoPlayerContainer {
+    width: 100%; height: 100%;
+    max-width: 100%; max-height: 100%;
+    position: relative;
+    display: flex; align-items: center; justify-content: center;
+}
+.video-js { width: 100% !important; height: 100% !important; }
+.video-js.vjs-fluid { padding-top: 0 !important; position: relative; }
+
+/* --- Sidebar Area --- */
+#sidebar {
+    flex-basis: var(--sidebar-width); flex-shrink: 0; min-width: var(--sidebar-min-width); max-width: var(--sidebar-width);
+    display: flex; flex-direction: column; background-color: var(--sidebar-bg);
+    border-radius: 6px; box-shadow: -2px 0 6px var(--shadow-color); overflow: hidden;
+}
+
+/* Top section of sidebar: Title, Controls, Shuffle, Autoplay */
+#sidebarTopControls {
+    padding: var(--content-padding) var(--content-padding) 10px var(--content-padding);
+    flex-shrink: 0; border-bottom: 1px solid var(--border-color);
+    display: flex; flex-direction: column; /* Stack items vertically */
+}
+
+/* Current Video Title (in Sidebar - Scrollable) */
+#currentVideoTitleSidebar {
+    order: 1; /* First item */
+    margin-bottom: 10px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    line-height: var(--title-line-height);
+    color: var(--text-dark);
+    text-align: center;
+    /* --- Scrollable Title Area --- */
+    max-height: calc(var(--title-line-height) * 3 * 1em + 4px); /* Approx 3 lines max height */
+    overflow-y: auto; /* Add scroll if title is longer */
+    word-wrap: break-word; /* Ensure long words break */
+    padding: 2px 4px; /* Small padding inside scroll area */
+    border: 1px solid var(--border-color); /* Optional: border to show scroll area */
+    border-radius: 3px;
+    background-color: rgba(0,0,0,0.02); /* Subtle background */
+}
+#currentVideoTitleSidebar a { color: var(--title-link-color); text-decoration: none; }
+#currentVideoTitleSidebar a:hover { text-decoration: underline; color: var(--title-link-hover-color); }
+
+/* Controls (Prev/Next in Sidebar) */
+#controls {
+    order: 2; /* Second item */
+    margin-bottom: 10px;
+    text-align: center;
+    flex-shrink: 0;
+}
+#controls button {
+    font-size: 0.85rem;
+    padding: 6px 12px;
+    margin: 3px;
+}
+
+/* Shuffle Button (in Sidebar) */
+#shuffleButton {
+    order: 3; /* Third item */
+    background-color: var(--shuffle-button-bg);
+    display: block; width: 100%;
+    margin: 0 auto 10px auto;
+    padding: 7px 12px; font-size: 0.9rem;
+}
+#shuffleButton:hover:not(:disabled) { background-color: var(--shuffle-button-hover-bg); }
+
+/* Autoplay Toggle Button Style */
+#autoplayToggleButton {
+    order: 4; /* Fourth item */
+    display: block; width: 100%;
+    margin: 0 auto 10px auto;
+    padding: 7px 12px; font-size: 0.9rem;
+}
+/* Specific styling for ON/OFF states will be handled by JS adding/removing a class */
+#autoplayToggleButton.autoplay-on {
+    background-color: var(--autoplay-button-on-bg);
+}
+#autoplayToggleButton.autoplay-on:hover:not(:disabled) {
+    background-color: var(--autoplay-button-on-hover-bg);
+}
+#autoplayToggleButton.autoplay-off {
+    background-color: var(--autoplay-button-off-bg);
+}
+#autoplayToggleButton.autoplay-off:hover:not(:disabled) {
+    background-color: var(--autoplay-button-off-hover-bg);
+}
+
+
+/* Upcoming List Container (Scrollable) */
+#upcomingListContainer {
+    padding: 0 var(--content-padding) 10px var(--content-padding);
+    flex-grow: 1; overflow: hidden; display: flex; flex-direction: column; min-height: 100px;
+}
+#upcomingListContainer h2 {
+    margin: 10px 0 5px 0; font-size: 1rem; color: var(--text-dark);
+    padding-bottom: 5px; text-align: center; flex-shrink: 0;
+    border-bottom: 1px solid var(--border-color);
+}
+#upcomingList {
+    list-style: none; padding: 0; margin: 0; overflow-y: auto; flex-grow: 1;
+    border: 1px solid var(--border-color); border-radius: 4px; background-color: var(--container-bg);
+}
+#upcomingList li { padding: 0; border-bottom: 1px solid var(--border-color); font-size: 0.85rem; }
+#upcomingList li:last-child { border-bottom: none; }
+#upcomingList li button.upcoming-link {
+    background: none; border: none; padding: 8px 6px; margin: 0; font: inherit;
+    color: var(--link-color); cursor: pointer; text-align: left; width: 100%;
+    display: flex; justify-content: space-between; align-items: center;
+    border-radius: 0; transition: background-color 0.15s ease; line-height: 1.2;
+}
+.upcoming-title {
+    /* Allow title to wrap up to 2 lines then ellipsis */
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2; /* Max 2 lines */
+    overflow: hidden;
+    text-overflow: ellipsis;
+    /* Fallback for non-webkit, though max-height might be needed */
+    max-height: calc(1.2em * 2); /* line-height * number of lines */
+    flex-grow: 1; padding-right: 5px;
+}
+.upcoming-score { font-size: 0.85em; color: var(--score-color); font-weight: normal; flex-shrink: 0; }
+#upcomingList li:nth-child(odd) button.upcoming-link { background-color: var(--list-bg-odd); }
+#upcomingList li:nth-child(even) button.upcoming-link { background-color: var(--list-bg-even); }
+#upcomingList li button.upcoming-link:hover { background-color: rgba(0, 123, 255, 0.1); color: var(--link-hover-color); }
+#upcomingList li button.upcoming-link:focus { outline: 2px solid var(--button-bg); outline-offset: -2px; }
+
+
+/* Dataset Controls Container (Scrollable) */
+#datasetControlsContainer {
+    padding: 10px var(--content-padding) var(--content-padding) var(--content-padding);
+    border-top: 1px solid var(--border-color); flex-shrink: 0;
+    overflow-y: auto;
+    /* Max height for approx 3.5 buttons (button height + margin) */
+    /* Button approx: 30px + 6px margin = 36px. 3.5 * 36 = 126px */
+    /* Adjust based on actual rendered button height */
+    max-height: 140px; 
+}
+#datasetControlsContainer h3 { margin: 0 0 8px 0; font-size: 0.95rem; text-align: center; color: var(--text-dark); padding-bottom: 5px; }
+#datasetButtons button.dataset-button {
+    background-color: var(--dataset-button-bg); font-size: 0.8rem; display: block;
+    width: 100%; margin: 3px 0; padding: 7px 10px;
+}
+#datasetButtons button.dataset-button:hover:not(:disabled) { background-color: var(--dataset-button-hover-bg); }
+#datasetButtons button.dataset-button.active-dataset { background-color: var(--dataset-button-active-bg); font-weight: bold; box-shadow: inset 0 1px 3px rgba(0,0,0,0.2); }
+
+/* --- Footer --- */
+footer {
+    padding: 10px var(--content-padding); font-size: 0.8rem; color: var(--footer-text-color);
+    text-align: center; width: 100%; background-color: rgba(0, 0, 0, 0.03);
+    flex-shrink: 0; border-top: 1px solid rgba(0,0,0,0.08);
+}
+#privacyPolicyContainer { margin: 5px 0; }
+.privacy-policy-heading { font-weight: bold; font-size: var(--privacy-heading-size); }
+.privacy-policy-text { font-size: var(--privacy-text-size); color: #666; }
+.future-features-note { font-size: var(--future-features-size); color: #777; margin-top: 3px; }
+
+/* --- Responsive Adjustments --- */
+@media (max-width: 850px) {
+    html, body { height: auto; overflow: auto; }
+    #layoutContainer { flex-direction: column; padding: 0 10px 10px 10px; height: auto; align-items: stretch; }
+    #mainContent { padding-right: 0; order: 1; width: 100%; overflow: visible; padding-bottom: 15px; align-items: stretch; }
+    #sidebar {
+        order: 2; margin-top: 0;
+        min-width: unset; max-width: 100%; position: static;
+        max-height: none; height: auto; flex-shrink: 1;
+        box-shadow: 0 2px 8px var(--shadow-color);
+    }
+    #upcomingContainer { max-height: 45vh; }
+    #upcomingListContainer { max-height: 30vh; }
+    #datasetControlsContainer { max-height: 150px; margin-top: 10px; } /* Allow more buttons on mobile */
+
+    #videoPlayerContainer { max-height: 60vh; /* Adjust video height on mobile */ }
+    .video-js.vjs-fluid { padding-top: 56.25% !important; }
+
+    h1 { font-size: 1.3rem; }
+    button { font-size: 0.9rem; }
+    #currentVideoTitleSidebar { font-size: 0.95rem; -webkit-line-clamp: 2; max-height: calc(var(--title-line-height) * 2 * 1em + 4px); }
+    #controls button { font-size: 0.85rem; padding: 7px 12px; }
+    #shuffleButton, #autoplayToggleButton, #datasetControlsContainer button.dataset-button { font-size: 0.85rem; padding: 7px 10px; }
+}
