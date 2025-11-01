@@ -1,198 +1,114 @@
 [
   {
-    "title": "This shadow art.",
-    "score": 288,
-    "url": "https://v.redd.it/rd65usdxqlyf1/HLSPlaylist.m3u8?a=1764577315%2CNzEyYzFkOGJkY2I4ZjRhYzUzMGQ0NThkNTkzNGU3MjYzNThkOWIyM2I3OTA3ZDkyMzA5MWViMGI4ZDRjYzUyOQ%3D%3D&v=1&f=sd",
-    "permalink": "https://reddit.com/r/Damnthatsinteresting/comments/1oli7zt/this_shadow_art/",
-    "type": "hls"
-  },
-  {
-    "title": "Parents making child poop on the floor of local train in Mumbai [OC]",
-    "score": 207,
-    "url": "https://v.redd.it/tsqycz2jolyf1/HLSPlaylist.m3u8?a=1764577315%2CYjhlMDI5ODU1MmJmMDljMDkzZjYxZTYxYzliYzJlNWE3NmE4Yjg5MTE2ZWNkZDBiMTgyZTBhNzk1NjFjNTMyYg%3D%3D&v=1&f=sd",
-    "permalink": "https://reddit.com/r/IndiaSpeaks/comments/1oli0xy/parents_making_child_poop_on_the_floor_of_local/",
-    "type": "hls"
-  },
-  {
-    "title": "A day at the playground.",
-    "score": 200,
-    "url": "https://v.redd.it/pfkdq3pqklyf1/HLSPlaylist.m3u8?a=1764577315%2CNjZiZjU1NDVmMzBhN2E5NmE5NTBkMWM3MTQzZWVmYmMwZDgzNGMyNmU5NWE5MzY1NjM5OTUxYjU4MTgxNzA0NQ%3D%3D&v=1&f=sd",
-    "permalink": "https://reddit.com/r/Unexpected/comments/1olhr0o/a_day_at_the_playground/",
-    "type": "hls"
-  },
-  {
-    "title": "She really had to use the filter huh",
-    "score": 189,
-    "url": "https://v.redd.it/3s2uk5xellyf1/HLSPlaylist.m3u8?a=1764577315%2CYTBiMzM5NTAyMmI1YTE0NWQ1OWVkYjQzOTNmYjA4MzNmNGY1YTBkYzczNjJlOTA5N2NmNGZmNjYwMTVjMzNiYg%3D%3D&v=1&f=sd",
-    "permalink": "https://reddit.com/r/mildlyinfuriating/comments/1olhs66/she_really_had_to_use_the_filter_huh/",
-    "type": "hls"
-  },
-  {
-    "title": "Saw this gentleman playing cricket alone on the terrace after the rain.",
-    "score": 177,
-    "url": "https://v.redd.it/vlfgfef4olyf1/HLSPlaylist.m3u8?a=1764577315%2CMmY5MjNlOGUxNTUzNWU1OTQwOTcwNDkzODRmZThmNmQxOGVhOGNiM2NjOWY2ZjI4ZTliZWFhZTFmOTU2ZjE4NA%3D%3D&v=1&f=sd",
-    "permalink": "https://reddit.com/r/TwentiesIndia/comments/1oli1mq/saw_this_gentleman_playing_cricket_alone_on_the/",
-    "type": "hls"
-  },
-  {
-    "title": "Ćaci pesaci u Mrčajevcima",
-    "score": 122,
-    "url": "https://v.redd.it/ews55j59olyf1/HLSPlaylist.m3u8?a=1764577315%2CZDhjMTE1YmUyNmZiZmIzZGEwNDMxNDUzMmVjZDYzNDU5OTRhZGMxOTRlZmNjYWZlYTVlMjA4MzZiMGQzMWI0NQ%3D%3D&v=1&f=sd",
-    "permalink": "https://reddit.com/r/serbia/comments/1oli03l/ćaci_pesaci_u_mrčajevcima/",
-    "type": "hls"
-  },
-  {
-    "title": "Massive hail storm rolling through Esk Qld.",
-    "score": 116,
-    "url": "https://v.redd.it/okyczv35plyf1/HLSPlaylist.m3u8?a=1764577315%2CZTMxZTVjMTA3YTQ5MWExMGE2ZGIyYmZlZjgxZDNlMTEyZGQwNjQ0YjA0YWNhYTM5YWMwYWNhNmFiZDZlZDdiNA%3D%3D&v=1&f=sd",
-    "permalink": "https://reddit.com/r/australia/comments/1oli429/massive_hail_storm_rolling_through_esk_qld/",
-    "type": "hls"
-  },
-  {
-    "title": "She always falls for this trick (by Yelin)",
-    "score": 107,
-    "url": "https://v.redd.it/gy0t7nr8llyf1/HLSPlaylist.m3u8?a=1764577315%2CZDE1NTk5M2QyMjM1ZmUzOWU0ZWJhZTllNTljODc4N2VkNzczNjM2MjE0NDkzNmIyYTIwMTY1YWZmYWM1N2Q2MA%3D%3D&v=1&f=sd",
-    "permalink": "https://reddit.com/r/furinamains/comments/1olhrit/she_always_falls_for_this_trick_by_yelin/",
-    "type": "hls"
-  },
-  {
-    "title": "Chiara sai sakot kun ei ollut lippua😅",
+    "title": "Durin / Kinich / Iansan / Bennett [GI Kitchen]",
     "score": 95,
-    "url": "https://v.redd.it/neayti97mlyf1/HLSPlaylist.m3u8?a=1764577315%2CYWZmYmMwYjdkM2U2NDJmNzNiOTM3ZGZlMmNkZDFjNjZiNmUxNjZkYzU2MTk5M2EyNjQ4YzA0ZWUyYzA5ZjdkYQ%3D%3D&v=1&f=sd",
-    "permalink": "https://reddit.com/r/snappisensuroimat0n/comments/1olhuiw/chiara_sai_sakot_kun_ei_ollut_lippua/",
+    "url": "https://v.redd.it/m4wzu1i5ylyf1/HLSPlaylist.m3u8?a=1764580654%2CNDRjMzMzMjZjOTgyZmZhMzk3ZDU5MGJkZmY3Y2U0ZDA4YjZlZmVkNWIzYjYwMjM5YjA1YTg2M2EzNjliYTA1NQ%3D%3D&v=1&f=sd",
+    "permalink": "https://reddit.com/r/Genshin_Impact_Leaks/comments/1olith7/durin_kinich_iansan_bennett_gi_kitchen/",
     "type": "hls"
   },
   {
-    "title": "[Worlds 2025: GEN vs KT] Kiin and Bdd go blow for blow",
-    "score": 88,
-    "url": "https://v.redd.it/fsqprh91slyf1/HLSPlaylist.m3u8?a=1764577315%2CNGFkMmViNjIxNzkxNTMwYWFlMTg1MTJkM2I4NDc5OTcyN2NkNDFhMjQ4NjlmMzA2ZmEwYjAxMTRjMmMxNTZkMw%3D%3D&v=1&f=sd",
-    "permalink": "https://reddit.com/r/leagueoflegends/comments/1olib94/worlds_2025_gen_vs_kt_kiin_and_bdd_go_blow_for/",
+    "title": "Durin (Dark) / Wriothesley / Xilonen / Albedo [GI Kitchen]",
+    "score": 94,
+    "url": "https://v.redd.it/indomr7pxlyf1/HLSPlaylist.m3u8?a=1764580654%2CZjExNjcyOGU1YTY5NTViOTRkYmI1ZDhlNzg3ZDg0Y2VlODM4ODNhNTJiNzgxYzYyYTA3MDMxNTczMWJkNDY4MA%3D%3D&v=1&f=sd",
+    "permalink": "https://reddit.com/r/Genshin_Impact_Leaks/comments/1olisai/durin_dark_wriothesley_xilonen_albedo_gi_kitchen/",
     "type": "hls"
   },
   {
-    "title": "This is 2028 energy",
-    "score": 84,
-    "url": "https://v.redd.it/w9rcp4tlllyf1/HLSPlaylist.m3u8?a=1764577315%2CM2ExY2ExYzFmNzlmNzBmYmIyODk2OWNiZmFlMjU3ZjZhMjBiOGRiM2M2OGZjYTkwYmExNDFkY2VkMTg0ZWI4Mg%3D%3D&v=1&f=sd",
-    "permalink": "https://reddit.com/r/MurderedByAOC/comments/1olhsjg/this_is_2028_energy/",
+    "title": "Pool table ball return system",
+    "score": 82,
+    "url": "https://v.redd.it/4z6xonzhzlyf1/HLSPlaylist.m3u8?a=1764580654%2CODkwZWZhNjczODZjZTEzZTM0Nzg3MGQ2YjdiMzViOTZjMjY4ODE2NTM0MTI3NzFiOWI2OWM1Y2FhOTliOTE5OQ%3D%3D&v=1&f=sd",
+    "permalink": "https://reddit.com/r/toolgifs/comments/1olixel/pool_table_ball_return_system/",
     "type": "hls"
   },
   {
-    "title": "47 metre yükseklikteki ofisim.",
-    "score": 78,
-    "url": "https://v.redd.it/1gzshkglklyf1/HLSPlaylist.m3u8?a=1764577315%2CYmY1ODUxZWRlNDQ1YjE1ZGUzZTkzMTdhOTkyZGI3NzllNTQwM2YyMGEwNTk3N2I2NmZjY2Q5ZDVjNzJkNjA4Yw%3D%3D&v=1&f=sd",
-    "permalink": "https://reddit.com/r/Turkey/comments/1olhpul/47_metre_yükseklikteki_ofisim/",
+    "title": "Tamisha showing how to actually make the splits impressive 🤯",
+    "score": 72,
+    "url": "https://v.redd.it/vcdv79ahvlyf1/HLSPlaylist.m3u8?a=1764580654%2CMzA1NDEwMjM3YjIyMmRiNTI1MGY2YTFkNjBiNWU5Mzc0ZTdmMWNkODk3MjQ1ZTMwMWQ3ZmYxZmU3M2RkOTA3ZA%3D%3D&v=1&f=sd",
+    "permalink": "https://reddit.com/r/rupaulsdragrace/comments/1olildk/tamisha_showing_how_to_actually_make_the_splits/",
     "type": "hls"
   },
   {
-    "title": "Cute little catman😍",
-    "score": 81,
-    "url": "https://v.redd.it/r48kghhbmlyf1/HLSPlaylist.m3u8?a=1764577315%2COTA5ODAwNTBmNzBjYzYzODhjNzkxYjk3ZjA2MzFmMDcwZjQzNmE5ODc1NWU3NmZjNWRjM2I2NDUzMmU4NWE4NA%3D%3D&v=1&f=sd",
-    "permalink": "https://reddit.com/r/Awww/comments/1olhusj/cute_little_catman/",
+    "title": "Evidența Populației Timișoara",
+    "score": 60,
+    "url": "https://v.redd.it/amkhv8vdulyf1/HLSPlaylist.m3u8?a=1764580654%2CNzMwNjZmMjU5NzJmNTBlMjMzZjE5OTBmZTk2MzNiN2M2MDY5OGE3YTU4MmY4Mjc5NGIwYTVhMjhlZDNjNWFiYQ%3D%3D&v=1&f=sd",
+    "permalink": "https://reddit.com/r/romaniacrazy/comments/1olii45/evidența_populației_timișoara/",
     "type": "hls"
   },
   {
-    "title": "feeling sad for mrdiul😢",
-    "score": 65,
-    "url": "https://v.redd.it/lz2wsxqpmlyf1/HLSPlaylist.m3u8?a=1764577315%2CNTYwNDcwYzM2MGZmYzQzN2JkOWU5MDExNDdjN2FiNzZlNTJjOWMxNmNkYTFkY2NmZTNhN2EzZTMyNDQwMTU5MA%3D%3D&v=1&f=sd",
-    "permalink": "https://reddit.com/r/biggboss/comments/1olhw66/feeling_sad_for_mrdiul/",
+    "title": "'I’m Dakota dressed as Dakota and I think that Dakota is going to get the most drunk tonight.' - IG October 2025",
+    "score": 56,
+    "url": "https://v.redd.it/fubddajuzlyf1/HLSPlaylist.m3u8?a=1764580654%2CZWM5ZWY5MTM5NDA0NWVmNzkxMzcxZjdjY2FmZTE4NjAzOTUzNzdjMjQ3YjM0ZmU2MmEyMmMxYzI0OTExNDQxOQ%3D%3D&v=1&f=sd",
+    "permalink": "https://reddit.com/r/dakotajohnson/comments/1oliycb/im_dakota_dressed_as_dakota_and_i_think_that/",
     "type": "hls"
   },
   {
-    "title": "[2.4.3 BETA] Dialyn and Banyue Gacha UI Animation via Flying Flame",
-    "score": 63,
-    "url": "https://v.redd.it/7byi8ymwolyf1/HLSPlaylist.m3u8?a=1764577315%2COGJhOTFkMjkyOGNkMzk5MDM1NWIyNzVkM2NmN2Q2YTJiYjU1ZmQ3YzRlMjY5YWUwMDcxZDMzNTM1YzA3YzA4Yw%3D%3D&v=1&f=sd",
-    "permalink": "https://reddit.com/r/Zenlesszonezeroleaks_/comments/1oli26z/243_beta_dialyn_and_banyue_gacha_ui_animation_via/",
-    "type": "hls"
-  },
-  {
-    "title": "[2.4.3 BETA] Dialyn and Banyue W-Engine UI Animation via Flying Flame",
-    "score": 62,
-    "url": "https://v.redd.it/keibn3dwolyf1/HLSPlaylist.m3u8?a=1764577315%2CY2M4YzU4OTQwODdjNGY2YjQ1ZDkwYTA3NTRiNzY1YjIyMjU2OWY4ZTFiNjI3ZTQxYzYxNzYzZGYzODg5Y2QzZA%3D%3D&v=1&f=sd",
-    "permalink": "https://reddit.com/r/Zenlesszonezeroleaks_/comments/1oli253/243_beta_dialyn_and_banyue_wengine_ui_animation/",
-    "type": "hls"
-  },
-  {
-    "title": "Funny cat dressed as batman😂",
-    "score": 66,
-    "url": "https://v.redd.it/rgnbjgt8qlyf1/HLSPlaylist.m3u8?a=1764577315%2COGJmNWUwODRiOTcyZThkNjhkNTExMGE5NThiNjg2OWJmOGQzMDUzMWVkOTlhYThhYTZjNzAzZTQwOGU1ZDAxYg%3D%3D&v=1&f=sd",
-    "permalink": "https://reddit.com/r/FunnyAnimals/comments/1oli617/funny_cat_dressed_as_batman/",
-    "type": "hls"
-  },
-  {
-    "title": "Indian couple fuck around and found out",
-    "score": 51,
-    "url": "https://v.redd.it/8y35pkuwnlyf1/HLSPlaylist.m3u8?a=1764577315%2CMzNkZWU3YzBjYmE2NTZkMDJiZmM1NTVjNjUwNmJlNDI3MzIyOTVjY2EwOWRhMzViN2U2MGU2ODZjZDI3YWJjZQ%3D%3D&v=1&f=sd",
-    "permalink": "https://reddit.com/r/fuckaroundandfindout/comments/1olhz42/indian_couple_fuck_around_and_found_out/",
-    "type": "hls"
-  },
-  {
-    "title": "I’ve been waiting 5 years for this team to make a comeback - Mono Geo - Fearless - 3rd Stage",
+    "title": "So here is the proof of vote chori",
     "score": 52,
-    "url": "https://v.redd.it/szbeepvrklyf1/HLSPlaylist.m3u8?a=1764577315%2CNWZjMDQ0ZjFhYTNiNmQ5MzliZTg0MDM5YjE2YWU5ZWRmYmI2NDZiNTE3ZGRhNGJiZDVmMTQ0NWNmYzIwYzJkZQ%3D%3D&v=1&f=sd",
-    "permalink": "https://reddit.com/r/Genshin_Impact/comments/1olhq69/ive_been_waiting_5_years_for_this_team_to_make_a/",
+    "url": "https://v.redd.it/ldojwrm00myf1/HLSPlaylist.m3u8?a=1764580654%2CZDQ5NmY1ZmQ0YWZjYTU2NTYyYmRkNWRkYzYyNmZmM2NmYTllMDlhNGU2MjQzNWY0ODIzM2FmYzNlZTU0OWExMg%3D%3D&v=1&f=sd",
+    "permalink": "https://reddit.com/r/unitedstatesofindia/comments/1oliytc/so_here_is_the_proof_of_vote_chori/",
     "type": "hls"
   },
   {
-    "title": "Fruit party",
-    "score": 50,
-    "url": "https://v.redd.it/herkdbtsklyf1/HLSPlaylist.m3u8?a=1764577315%2CN2ZmMzQzMGRkODQ4NjY1NDY0MTE0Y2YwYzk2OGM5NTAyM2JjN2E1ODY4NjEyZDRhNWE1YmVkZTJjZmI1MzVhNw%3D%3D&v=1&f=sd",
-    "permalink": "https://reddit.com/r/funny/comments/1olhq70/fruit_party/",
+    "title": "Unpopular opinion: Most of the scamsters are from CA background",
+    "score": 43,
+    "url": "https://v.redd.it/2i77uzhlulyf1/HLSPlaylist.m3u8?a=1764580654%2CZGQzNDMyNDRiZDhhZjA5MzQ4MTI1YjhiYzBlNDFkMDNlYjQ0M2QzYzIyNWNjNjQ4NjBhMzc5ZGM2ZmM0YWUzOA%3D%3D&v=1&f=sd",
+    "permalink": "https://reddit.com/r/IndianStreetBets/comments/1oliisu/unpopular_opinion_most_of_the_scamsters_are_from/",
     "type": "hls"
   },
   {
-    "title": "Throwback to My Favorite Fosters: The 'Tude-Filled Crab Cats",
-    "score": 50,
-    "url": "https://v.redd.it/f4fcn426olyf1/HLSPlaylist.m3u8?a=1764577315%2CMTQ3YWM5YWYxOTlkMzY0M2I2NzcyODM3ZDg5ZjE5ZWJjNzM4MjBmYmViN2E3YWM1NWRjNmUwNTJlZDJmYjRhOA%3D%3D&v=1&f=sd",
-    "permalink": "https://reddit.com/r/crabcats/comments/1oli0oi/throwback_to_my_favorite_fosters_the_tudefilled/",
-    "type": "hls"
-  },
-  {
-    "title": "Elevated land,elevated tribe💪💪",
+    "title": "Spicapufsochsgxosogcs",
     "score": 46,
-    "url": "https://v.redd.it/0jykwveyllyf1/HLSPlaylist.m3u8?a=1764577315%2CN2JkM2U1MDNkNTEwNzBjZDM2M2JjZjkwNGM3MjM2YzMwZjMwZjU1NDY3ZjBlN2RiZjYyMjdhYjU1Nzk3Yjg3ZA%3D%3D&v=1&f=sd",
-    "permalink": "https://reddit.com/r/karnataka/comments/1olhtlx/elevated_landelevated_tribe/",
+    "url": "https://v.redd.it/zpnyxww8ulyf1/HLSPlaylist.m3u8?a=1764580654%2CMjk3ZDJiNTMxN2RkM2VlMjM4YjliNzdjNjg0ZjBmOGY1NTZhY2E1ZTkzODQ3OGNmNDdkZmVmYTllZDlkNmNiNg%3D%3D&v=1&f=sd",
+    "permalink": "https://reddit.com/r/sssdfg/comments/1olihpm/spicapufsochsgxosogcs/",
     "type": "hls"
   },
   {
-    "title": "The New Yorker",
-    "score": 45,
-    "url": "https://v.redd.it/zx188etyklyf1/HLSPlaylist.m3u8?a=1764577315%2CMTQ0ZjBkNDk3NjhmYTRjMTdhZWJiM2M4MWY0NWY4ZGE3OWZiYjY4NGJmMjEyNWQ5NzY3YjQxZjhlZDg5YjdmNw%3D%3D&v=1&f=sd",
-    "permalink": "https://reddit.com/r/LeftoversH3/comments/1olhqon/the_new_yorker/",
+    "title": "Good Morning. It's the weekend. Enjoy.",
+    "score": 43,
+    "url": "https://v.redd.it/jc9zwtyhvlyf1/HLSPlaylist.m3u8?a=1764580654%2CZjkzYTkzZTFhODI2ZTIyYWFlMTUzZjFkYmJjZDNlYmJiMTNiNTIyNDMyZGVlN2VhYmUxOTU4MTFlN2UxZDQzNg%3D%3D&v=1&f=sd",
+    "permalink": "https://reddit.com/r/EmmaMyers/comments/1olilfh/good_morning_its_the_weekend_enjoy/",
     "type": "hls"
   },
   {
-    "title": "Бавовна :)",
-    "score": 42,
-    "url": "https://v.redd.it/ze7pxzamklyf1/HLSPlaylist.m3u8?a=1764577315%2CNDc2MjkwZmFlZGY2NGQ3Y2ZkZDY0NjNhNDc2YWExZDg1ZjJmOGRlYzVhZjQ2ZWY0ZjM2ZWU3NjA2NTYwMjlkNw%3D%3D&v=1&f=sd",
-    "permalink": "https://reddit.com/r/tjournal_refugees/comments/1olhpxh/бавовна/",
+    "title": "🌑",
+    "score": 35,
+    "url": "https://v.redd.it/nhdgunqwulyf1/HLSPlaylist.m3u8?a=1764580654%2COWU5OWI3NDZjM2MwZGQzODVhNTc5MDEzYzFkMzkyZGFiZDRiMTFmNzE4ZTI4MWVjZmQ1NmQzYTA5NGM0NTA0Ng%3D%3D&v=1&f=sd",
+    "permalink": "https://reddit.com/r/sadposting/comments/1olijpz/_/",
     "type": "hls"
   },
   {
-    "title": "Turning a tree trunk into a stunning sculpture",
-    "score": 41,
-    "url": "https://v.redd.it/ileul1ygmlyf1/HLSPlaylist.m3u8?a=1764577315%2CYmZhOTA2Y2JlNDEwMWFlMGUyY2U4YzQ0MGYxYjJmODY0MjQ2YTEwNDliZDAyMWUxODY1YzIyMjAwY2I5ZGMyMQ%3D%3D&v=1&f=sd",
-    "permalink": "https://reddit.com/r/BeAmazed/comments/1olhwry/turning_a_tree_trunk_into_a_stunning_sculpture/",
+    "title": "Posnetek cigana Samir Šiljiča na zabavi pred umorom",
+    "score": 33,
+    "url": "https://v.redd.it/d1djzy40vlyf1/HLSPlaylist.m3u8?a=1764580654%2CMzdhNDhhNTBlNTAzNjNlNDZkOTk0ZjI0NDQyZGIwNTA3NjYyMDZjZDAwYWE0NmEzMzEzYTIxZTI2ZjkyYjgwNQ%3D%3D&v=1&f=sd",
+    "permalink": "https://reddit.com/r/Ljubljana/comments/1olikr3/posnetek_cigana_samir_šiljiča_na_zabavi_pred/",
     "type": "hls"
   },
   {
-    "title": "Great Tips and Tricks for Securing Water Pipes at Home",
-    "score": 40,
-    "url": "https://v.redd.it/e997o2cillyf1/HLSPlaylist.m3u8?a=1764577315%2CM2M1NzM1MmE3MjkyZTA0ZGZkNjEwOWQ2NjYyZjdiMzhhMzM3MTE4ZWMzZjczZDNkNDc2OTc5NmI3N2Q0ODQzMg%3D%3D&v=1&f=sd",
-    "permalink": "https://reddit.com/r/DiWHY/comments/1olhuy3/great_tips_and_tricks_for_securing_water_pipes_at/",
+    "title": "Celestial Grand Majesty has *opinions* about car trips",
+    "score": 34,
+    "url": "https://v.redd.it/jcqom39uxlyf1/HLSPlaylist.m3u8?a=1764580654%2CMTdkNWYzNWQ0NzMzNDhiOGE5MGNiZDg5ZmUyYjRmNWY4OTg4NGUwZTgzYmNkNTA5MjgwOTg5NmJhNzcxZTJjMg%3D%3D&v=1&f=sd",
+    "permalink": "https://reddit.com/r/Catswhoyell/comments/1olisd9/celestial_grand_majesty_has_opinions_about_car/",
     "type": "hls"
   },
   {
-    "title": "Amethyst geode made into table",
-    "score": 38,
-    "url": "https://v.redd.it/0vcifmytklyf1/HLSPlaylist.m3u8?a=1764577315%2CYzk2NzFlNTBhYmE2YTI2YjdkN2FhMGRjYjcyNDhkMmY3N2E4MTJkN2YzMTQwNDcwNTE5M2ZlNTdhMTYyMjBlZQ%3D%3D&v=1&f=sd",
-    "permalink": "https://reddit.com/r/Satisfyingasfuck/comments/1olhqdj/amethyst_geode_made_into_table/",
+    "title": "They've just slaughtered the entire non Arab population of a town... yet think nothing of posting a video of themselves celebrating and laughing.\n\nHamas did the very same on Oct 7th, as did ISIS in Syria.",
+    "score": 34,
+    "url": "https://v.redd.it/5drykm0fzlyf1/HLSPlaylist.m3u8?a=1764580654%2CODBiODk4MjI5MDJiM2Y1OWRiNTlkMzFjMzJkOTZlOTNhZTlmODgyNmQwNzQ2ZGEwNmY0MWU3M2JkNDI3ZjU3Yw%3D%3D&v=1&f=sd",
+    "permalink": "https://reddit.com/r/SarthakGoswami/comments/1olixbc/theyve_just_slaughtered_the_entire_non_arab/",
     "type": "hls"
   },
   {
-    "title": "Ofcourse, China is greater than us ! Why wouldnt they !",
-    "score": 38,
-    "url": "https://v.redd.it/pyqo5qvlmlyf1/HLSPlaylist.m3u8?a=1764577315%2CNDQ1NjVlYjJlODRjYWUwNjBjZjdmYzFmN2M2ZTNjZWIxOTk5MzRkMWUyN2FiYTAzMmVmYTg3NjU1Njk3Y2Y4NQ%3D%3D&v=1&f=sd",
-    "permalink": "https://reddit.com/r/TeenIndia/comments/1olhvgr/ofcourse_china_is_greater_than_us_why_wouldnt_they/",
+    "title": "Preferences",
+    "score": 30,
+    "url": "https://v.redd.it/i0qbe30kulyf1/HLSPlaylist.m3u8?a=1764580654%2CYTYxZGExNWVlNzY1ZjYxNTY2YWMxNzA5NWVmODI5MDc4NDI2MDcwODQ5ZmQxZjg5NTFmMDViYmFkYzRjMTJhOA%3D%3D&v=1&f=sd",
+    "permalink": "https://reddit.com/r/dankvideos/comments/1oliipe/preferences/",
+    "type": "hls"
+  },
+  {
+    "title": "It's not unusual for cats to do backflips. But have you ever seen a cat walk upside down?",
+    "score": 30,
+    "url": "https://v.redd.it/vmf279shylyf1/HLSPlaylist.m3u8?a=1764580654%2CNTM2ZTMwZGNkY2U3MjNiN2FkZDFkMjdhYmU3YTQ5NjkzZDJjOGIxYzc1ODE3ZWNiOGMzYmYxOWEyMWM0YTFlYQ%3D%3D&v=1&f=sd",
+    "permalink": "https://reddit.com/r/FunnyAnimals/comments/1oliub3/its_not_unusual_for_cats_to_do_backflips_but_have/",
     "type": "hls"
   }
 ]
